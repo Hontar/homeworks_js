@@ -20,15 +20,15 @@ function Card(){
       return res 
     })()
     this.putCash = function (sum){
-        cash += sum
+        cash += isNaN(Number(sum)) ? 0 : Number(sum)
     }
     this.getCash = function (sum){
         if(prompt("enter your pin") === pin){
             if(cash < sum){
                 return "Not enough cash" 
             } else {
-                cash -= sum
-                return `Take ${sum}`
+                cash -= isNaN(Number(sum)) ? 0 : Number(sum)
+                return `Take ${sum}. Current account balance: ${cash}`
             }
         } else return "Not correct pin"
     } 
@@ -67,10 +67,8 @@ cardImg.onclick = function(event){
 		input.style.visibility = 'visible'
 		label.style.visibility = 'visible'
 		label.innerHTML = "Enter amount of money you want to get"
-		input.onchange = function(event){
-			// myCard.getCash(Number(this.value))			
-			balance.innerHTML = `${myCard.getCash(this.value)} 
-			Current account balance: ${myCard.getInfo()}`
+		input.onchange = function(event){			
+			balance.innerHTML = isNaN(Number(this.value)) ? `You should enter number` : `${myCard.getCash(this.value)}`
 			event.target.value = null
 		}
 	}	
@@ -80,7 +78,7 @@ cardImg.onclick = function(event){
 		label.innerHTML = "Enter amount of money you want to put"
 		input.onchange = function(event){
 			myCard.putCash(Number(this.value))			
-			balance.innerHTML = `Account was filled up for: ${this.value}`
+			balance.innerHTML = isNaN(Number(this.value)) ? `You should enter number` : `Account was filled up for: ${this.value}`
 			event.target.value = null
 		}		
 	} 
