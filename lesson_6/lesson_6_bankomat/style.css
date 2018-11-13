@@ -1,0 +1,50 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	font-size: 16px;
+    font-family: monospace, Arial;
+}
+h1{
+	text-align: center;
+	margin: 30px;
+}
+button, input {	
+    padding: 5px 10px;
+    font-size: 16px;
+}
+input {	
+	width: 100%;
+	margin-top: 15px
+}
+img, button:hover{
+	cursor: pointer;
+}
+#show_info{
+	margin-right: 24px;
+}
+#wellcome_card{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#card_actions{
+	padding: 20px;
+	background-color: lightgrey;
+	border: 2px groove grey;
+	box-sizing: border-box
+}
+p{
+	margin: 15px 0;
+}
+#controls{
+	width: calc(100%-40px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

@@ -1,4 +1,3 @@
-
 var users = {
     14587: {
         name: "Ivan",
@@ -59,33 +58,68 @@ var comments = {
             or null if the element is not in a namespace`
     }
 }
-// function getCurrentPostComments ( postId ) {    
-//     var resComment = []
-//     for (var comment in comments){
-//         for (var elem in comments[comment]){
-//             if (comments[comment][elem] === postId) {  
-//                 var obj = {}     
-//                 var authorId = comments[comment]['author']            
-//                 obj['author'] = users[authorId]['name']
-//                 obj['text'] = comments[comment]['text']
-//                 resComment.push(obj)
-//             } 
-//         }      
-//     } 
-//     return resComment
-// }
 
 function getCurrentPostComments ( postId ) {    
     var resComment = []
     for (var comment in comments){
-        if (comments[comment].postId !== postId) continue             
-            resComment.push({
-                author: users[comments[comment].author].name,
-                text: comments[comment].text
-            })
-    } 
+        comments[comment].postId === postId ? resComment.push(comments[comment]) : null
+    }
+    for (var comment of resComment){
+        comment.author = users[comment.author].name
+        delete comment.postId
+    }
     return resComment
 }
-
-
 console.log ( getCurrentPostComments ( 7891451 ) )
+
+
+var handBag = {
+    content: [],
+    addItem: function(item){
+        this.content.push(item)
+    },
+    removeItem: function(item){
+        var ind = this.content.indexOf(item)
+        ind > 0 ? this.content.splice(ind, 1) : null
+    }
+}
+
+handBag.addItem("necklace")
+handBag.addItem("mirror")
+handBag.removeItem("necklace")
+
+function LibraryBook(title = "no author", year = "unknown", author = "unknown"){
+    var title = title
+    var year = year
+    var author = author
+    var readerName = null
+    var readerData = null
+    function giveTheBook ( client ){
+        var readerName = client 
+        var readerData = new Date().toLocaleString().split(", ")[0]
+        console.log(title)
+    }  
+    this.getBookInfo = function(){
+        console.log(`${title} ${year} ${author} Book ${readerName ? "not awailable" : "awailable"}`)
+        return !Boolean(readerName)
+    } 
+    this.getTheBook = function ( client ) {
+        return this.getBookInfo() ? giveTheBook(client) : null
+        // if(readerName) {
+        //     giveTheBook(client)
+        //     return bookTitle
+        // } else return null
+    }
+    this.returnBook = function() {
+        readerName = null
+        readerData = null
+    }
+}
+
+var myBook = new LibraryBook ("Idiot", "1992")
+myBook.getBookInfo()
+myBook.getTheBook("Mary")
+myBook.returnBook()
+myBook.getTheBook()
+
+
