@@ -54,21 +54,26 @@ cardImg.onclick = function(event){
 	var buttonInfo = createElem ('button', controls, "Show current account balance")
 	var buttonPutCash = createElem ('button', controls, "Put cash")
 	var buttonGetCash = createElem ('button', controls, "Get cash")
+	
 	var label = createElem ('label', cardInfo)
 	label.setAttribute('for', "enter_amount")
 	label.innerHTML = "Enter amount of money"
 	label.style.visibility = 'hidden'
 	var input = createElem ('input', cardInfo)
-	input.type = 'text'
+	input.type = 'number'
 	input.style.visibility = 'hidden'
 	input.id = "enter_amount"	
 	var balance = createElem ('p', cardInfo)
+	var buttonConfirm = cardInfo.insertBefore(document.createElement("button"), balance)
+	buttonConfirm.innerHTML = "OK"
+	buttonConfirm.style.visibility = 'hidden'
 	buttonGetCash.onclick = function (event){
 		input.style.visibility = 'visible'
 		label.style.visibility = 'visible'
 		label.innerHTML = "Enter amount of money you want to get"
-		input.onchange = function(event){			
-			balance.innerHTML = isNaN(Number(this.value)) ? `You should enter number` : `${myCard.getCash(this.value)}`
+		buttonConfirm.style.visibility = 'visible'
+		buttonConfirm.onclick = function(event){			
+			balance.innerHTML = isNaN(Number(input.value)) ? `You should enter number` : `${myCard.getCash(input.value)}`
 			event.target.value = null
 		}
 	}	
@@ -76,9 +81,10 @@ cardImg.onclick = function(event){
 		input.style.visibility = 'visible'
 		label.style.visibility = 'visible'
 		label.innerHTML = "Enter amount of money you want to put"
-		input.onchange = function(event){
-			myCard.putCash(Number(this.value))			
-			balance.innerHTML = isNaN(Number(this.value)) ? `You should enter number` : `Account was filled up for: ${this.value}`
+		buttonConfirm.style.visibility = 'visible'
+		buttonConfirm.onclick = function(event){
+			myCard.putCash(Number(input.value))			
+			balance.innerHTML = isNaN(Number(input.value)) ? `You should enter number` : `Account was filled up for: ${input.value}`
 			event.target.value = null
 		}		
 	} 

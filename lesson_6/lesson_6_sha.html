@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">     
+    <title>SHA</title>
+    <script src="https://cdn.rawgit.com/chrisveness/crypto/4e93a4d/sha256.js"></script>
+ 
+</head>
+<body>    
+    <div id = "book_place" class = "main_banner">
+        <div class="wrap">
+            <div class = "booking">
+                <h1>
+                    EUROPEAN OFFICE IN THE CENTRE
+                </h1>
+                <div class = "booking_form">
+                    <h3 id = "title">
+                    </h3>
+                    <button id = "signIn" onclick="signIn(event)"> 
+                        sign in
+                    </button>
+                    <button id = "registration" onclick="register( event )"> 
+                        register
+                    </button>
+                    <div id="form_fields">
+                        <input id = "name" type = "text" placeholder = "Your name">
+                        <input id = "email" type = "email" placeholder = "Your email">
+                        <input id = "password" type = "password" placeholder = "Your password">
+                        
+                        <button id = "submit" type = "submit" onclick="testData()"> 
+                            submit
+                        </button>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>  
+    <script type="text/javascript" src="register.js"></script> 
+</body>
+</html>

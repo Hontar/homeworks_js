@@ -12,7 +12,7 @@ function LibraryBook(title = "no author", year = "unknown", author = "unknown"){
     }
     this.getBookInfo = function(){
         console.log(`${title} ${year} ${author} Book ${readerName ? "not awailable" : "awailable"}`)
-    	return !Boolean(readerName)
+    	return !readerName
     }
     this.getTheBook = function(client){
         return this.getBookInfo() ? giveTheBook(client) : null

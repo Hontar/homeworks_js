@@ -1,0 +1,104 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500,800,900");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+
+
+body {
+  min-width: 320px;
+  position: relative;
+  font-family: Raleway, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f9f6d6; }
+
+.wrap {
+  max-width: 80%;
+  margin: 0 auto; }
+
+/* РАЗОБРАТЬСЯ С ЖИРНЫМ ШРИФТОМ*/
+h1, h2, h3, button {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+button {
+  margin: 10px 0;
+  font-size: 1.75em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  -webkit-box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5); }
+
+/* HEADER */
+header {
+  background-color: #0c0105;
+  height: 100vh;
+  overflow: hidden; }
+
+header p, a, h1, h2 {
+  color: #f1e9b9; }
+
+
+
+/* MAIN BANNER */
+.main_banner {
+  position: relative;
+  height: -webkit-calc(100% - 90px);
+  height: calc(100% - 90px);
+  width: 100%; }
+
+.booking {
+  position: absolute;
+  width: 290px;
+  top: 0;
+  right: 10%;
+  padding: 30px;
+  text-align: center; }
+  .booking img {
+    padding: 30px 0 40px; }
+  .booking h2 {
+    font-size: 1.25em;
+    text-transform: capitalize; }
+  .booking h1 {
+    font-size: 1.5em;
+    line-height: 1;
+    padding-bottom: 20px; }
+
+/* РАЗОБРАТЬСЯ С ПЛАВНЫМ ПЕРЕВОХОД ПО ССЫЛКЕ*/
+.booking_form {
+  position: relative;
+  background-color: rgba(255, 224, 146, 0.8);
+  padding: 30px 10px; }
+  .booking_form h3 {
+    font-size: 1.375em;
+    line-height: 1;
+    padding-bottom: 30px; }
+  .booking_form div input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid white;
+    outline: none;
+    line-height: 1.1;
+    font-size: 1.125em; }
+  .booking_form div input:focus {
+    -webkit-box-shadow: 0 0 10px #591f23;
+            box-shadow: 0 0 10px #591f23; }
+  .booking_form button {
+    color: white;
+    background-color: #84bdd1;
+    padding: 10px 40px; }
+  .booking_form button:hover {
+    background-color: #00a9da; }
+
+
