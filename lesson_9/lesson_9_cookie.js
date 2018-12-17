@@ -5,13 +5,12 @@
 и страничка должна быть заполнена*/
 
 function makeDoc(){
-    function createElem (tag = "div", destination = document.body, type = "text"){
+    function createElem (tag = "div", destination = document.body){
         var elem = destination.appendChild(document.createElement(tag))
-        elem.type = type
         return elem
     }
     var inputName = createElem("input")
-    var inputAge = createElem("input", document.body, "age")
+    var inputAge = createElem("input")
     inputName.onchange = function(event){
         document.cookie = `name=${this.value}`
     }

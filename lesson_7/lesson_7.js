@@ -38,10 +38,24 @@ Object.defineProperties(User.prototype, {
     messageBox: {
         value: (function(){
             var box = document.body.appendChild(document.createElement("div"))
+            box.style = `
+                position: fixed;
+                bottom: 0;
+                right: 15px;
+                width: 300px;
+                height: 300px;
+                overflow: auto;
+                border: 1px solid black;
+                border-radius: 5px 5px 0 0;
+                padding: 10px;
+                background-color: gray;
+            `
             box.userAvatar = box.appendChild(document.createElement("img"))
-            box.userAvatar.style.height = "150px"
+            box.userAvatar.style.height = "50px"
             box.userName = box.appendChild(document.createElement("p"))
+            box.userName.style = "display: inline-block; font-weight: bold; color: white; padding-left:10px;"
             box.message = box.appendChild(document.createElement("textarea"))
+            box.message.style = "width: 100%; height: 50%;"
             box.readMessage = box.appendChild(document.createElement("p"))
             box.message.oninput = function(event){
                 // event.target.value = User.admin.write()
@@ -97,15 +111,19 @@ users.forEach (
     }
 )
 
-var j = 2
-while(messages.some(
-        function (x) {
-            return x.unread === true
-        })
-    ){
-        setTimeout ( 
-            (function () {
-                users [Math.floor (Math.random() * (users.length-1)) ].read( Math.floor(Math.random() * messages.length) + 1 )
-            })(), 3000 * j++
-        ) 
-}
+
+// а вот тут я не понимаю, что не так. цикл прокручивается быстро и не работает setTimeout
+// по задумке рандомный пользователь читает рандомное непрочитанное сообщение
+
+// var j = 2
+// while(messages.some(
+//         function (x) {
+//             return x.unread === true
+//         })
+//     ){
+//         setTimeout ( 
+//             (function () {
+//                 users [Math.floor (Math.random() * (users.length-1)) ].read( Math.floor(Math.random() * messages.length) + 1 )
+//             })(), 3000 * j++
+//         ) 
+// }
